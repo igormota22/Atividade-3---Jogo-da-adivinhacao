@@ -1,7 +1,5 @@
 ﻿using System.Security.Cryptography;
 
-
-
 while (true)
 
 {
@@ -40,9 +38,9 @@ System.Console.WriteLine("-----------------------------");
 }
 
 Console.Write("Deseja continuar (s/n)");
-string opcao =  Console.ReadLine();
+string? opcao =  Console.ReadLine();
 
-if (opcao.ToUpper() == "n" || opcao.ToUpper() == "N")
+if (opcao?.ToUpper() == "n" || opcao == "N")
     {
          return;
     }
