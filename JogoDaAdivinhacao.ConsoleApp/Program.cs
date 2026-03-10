@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Security.Cryptography;
 
+
 while (true)
 
 {
+
+int[] numerosDigitados = new int [100];
+int contadorNumerosDigitados = 0;
+
 
 Console.Clear();
 
@@ -57,8 +62,40 @@ for(int tentativa = 1; tentativa <= tentativasMaximas; tentativa++)
           System.Console.Write($"Digite um valor entre 1 e {numeroMaximo}: ");
           int chute = Convert.ToInt32(Console.ReadLine());
 
-          System.Console.WriteLine($"O valor digitado foi:  {chute}");
-          System.Console.WriteLine($"O valor era: {numeroAleatorio}");
+          bool numeroRepetido = false;
+          for (int i = 0; i < numerosDigitados.Length; i++)
+          {
+                if (numerosDigitados[i] == chute)
+          {
+               
+               numeroRepetido = true;
+               break;
+          }
+              
+          }
+
+          if(numeroRepetido == true)
+          {
+               System.Console.WriteLine("-----------------------------");
+               System.Console.WriteLine("VOCE JA DIGITOU ESSE NUMERO.TENTE NOVAMENTE");
+               System.Console.WriteLine("-----------------------------");
+               System.Console.Write("Digite ENTER para continuar: ");
+               Console.ReadKey();
+
+               tentativa--;
+               continue;
+
+               
+
+          }
+
+          if (contadorNumerosDigitados < numerosDigitados.Length)
+          {
+               numerosDigitados[contadorNumerosDigitados] = chute;
+
+               contadorNumerosDigitados++;
+          }
+     
 
 if (chute == numeroAleatorio)
 {
@@ -85,7 +122,8 @@ if (tentativa == tentativasMaximas)
                System.Console.WriteLine("-----------------------------");
                System.Console.WriteLine($"MAXIMO DE TENTATIVAS ATINGIDO,O NUMERO SECRETO ERA {numeroAleatorio}: ");
                System.Console.WriteLine("-----------------------------");
-}
+          }
+
           }
 
 
@@ -98,8 +136,4 @@ if (opcao?.ToUpper() == "n" || opcao?.ToUpper() == "N")
          return;
     }
 
-    
-    
-       
-    
 }    
