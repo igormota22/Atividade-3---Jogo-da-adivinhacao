@@ -8,7 +8,7 @@ while (true)
 
 int[] numerosDigitados = new int [100];
 int contadorNumerosDigitados = 0;
-
+int pontuacao = 1000;
 
 Console.Clear();
 
@@ -106,23 +106,48 @@ break;
 }
 else if (chute > numeroAleatorio)
 {
+
 System.Console.WriteLine("-----------------------------");
 System.Console.WriteLine("O NUMERO DIGITADO FOI MAIOR QUE O NUMERO SECRETO");
-System.Console.WriteLine("-----------------------------");
+System.Console.WriteLine("-----------------------------");              
+System.Console.Write("Digite ENTER para continuar: "); 
 }
 else
 {
 System.Console.WriteLine("-----------------------------");
 System.Console.WriteLine("O NUMERO DIGITADO FOI MENOR QUE O NUMERO SECRETO");
 System.Console.WriteLine("-----------------------------");
+System.Console.Write("Digite ENTER para continuar: ");
+
 }
+
+Console.ReadKey();
+
+int diferencaNumerica = Math.Abs(numeroAleatorio - chute);
+
+if(diferencaNumerica >= 10)
+          {
+               pontuacao-=100;
+          }
+          else if(diferencaNumerica >= 5){
+             pontuacao-=50;  
+          }
+          else
+          {
+               pontuacao-=20;
+          }
 
 if (tentativa == tentativasMaximas)
           {
                System.Console.WriteLine("-----------------------------");
                System.Console.WriteLine($"MAXIMO DE TENTATIVAS ATINGIDO,O NUMERO SECRETO ERA {numeroAleatorio}: ");
                System.Console.WriteLine("-----------------------------");
+               
           }
+
+          System.Console.WriteLine("------------------------------------------");
+          System.Console.WriteLine($"SUA PONTUAÇÃO FOI DE: {pontuacao} ");
+          System.Console.WriteLine("------------------------------------------");
 
           }
 
