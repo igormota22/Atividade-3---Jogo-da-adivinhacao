@@ -73,6 +73,28 @@ class Program
 
      }
 
+     static void EstaQuenteOuFrio(int numeroAleatorio, int chute)
+     {
+          int diferencaNumerica = Math.Abs(numeroAleatorio - chute);
+
+          if (diferencaNumerica >= 20)
+          {
+               System.Console.WriteLine("Muito longe");
+          }
+          else if (diferencaNumerica >= 10 && diferencaNumerica <=19)
+          {
+             System.Console.WriteLine("Longe");  
+          }
+          else if (diferencaNumerica >= 5 && diferencaNumerica <= 9)
+          {
+               System.Console.WriteLine("Perto");
+          }
+          else
+          {
+               System.Console.WriteLine("Muito perto");
+          }
+     }
+
      static void ExecutarPartida(int numeroMaximo, int tentativasMaximas)
      {
           int[] numerosDigitados = new int[100];
@@ -91,18 +113,18 @@ class Program
                if (resto == 0)
                {
                     System.Console.WriteLine("O número é par");
-                     Console.ReadKey();
+                    Console.ReadKey();
                }
                else
                {
                     System.Console.WriteLine("O número é impar");
-                     Console.ReadKey();
-                     
+                    Console.ReadKey();
+
                }
-               
-               
+
+
           }
-          
+
           for (int tentativa = 1; tentativa <= tentativasMaximas; tentativa++)
 
           {
@@ -113,6 +135,9 @@ class Program
 
                System.Console.Write($"Digite um valor entre 1 e {numeroMaximo}: ");
                int chute = Convert.ToInt32(Console.ReadLine());
+
+
+               int diferencaNumerica = Math.Abs(numeroAleatorio - chute);
 
                bool numeroRepetido = false;
                for (int i = 0; i < numerosDigitados.Length; i++)
@@ -158,6 +183,7 @@ class Program
                     System.Console.WriteLine("-----------------------------");
                     System.Console.WriteLine("O NUMERO DIGITADO FOI MAIOR QUE O NUMERO SECRETO");
                     System.Console.WriteLine("-----------------------------");
+                    EstaQuenteOuFrio(numeroAleatorio,chute);
                     System.Console.Write("Digite ENTER para continuar: ");
                }
                else
@@ -165,13 +191,14 @@ class Program
                     System.Console.WriteLine("-----------------------------");
                     System.Console.WriteLine("O NUMERO DIGITADO FOI MENOR QUE O NUMERO SECRETO");
                     System.Console.WriteLine("-----------------------------");
+                    EstaQuenteOuFrio(numeroAleatorio,chute);
                     System.Console.Write("Digite ENTER para continuar: ");
 
                }
 
                Console.ReadKey();
 
-               int diferencaNumerica = Math.Abs(numeroAleatorio - chute);
+
 
                if (diferencaNumerica >= 10)
                {
