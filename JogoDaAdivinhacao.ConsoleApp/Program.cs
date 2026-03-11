@@ -81,6 +81,28 @@ class Program
 
           int numeroAleatorio = RandomNumberGenerator.GetInt32(1, numeroMaximo + 1);
 
+          System.Console.WriteLine("Aperte 'D/d' para receber uma dica ou ENTER para continuar");
+          string? dica = Console.ReadLine();
+
+          if (dica == "d".ToUpper() || dica == "D".ToLower())
+          {
+               int resto = numeroAleatorio % 2;
+
+               if (resto == 0)
+               {
+                    System.Console.WriteLine("O número é par");
+                     Console.ReadKey();
+               }
+               else
+               {
+                    System.Console.WriteLine("O número é impar");
+                     Console.ReadKey();
+                     
+               }
+               
+               
+          }
+          
           for (int tentativa = 1; tentativa <= tentativasMaximas; tentativa++)
 
           {
