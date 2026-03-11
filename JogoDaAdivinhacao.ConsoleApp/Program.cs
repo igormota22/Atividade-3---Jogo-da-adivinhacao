@@ -42,30 +42,35 @@ class Program
 
      static void ConfigurarPartida(string? dificuldade, out int numeroMaximo, out int tentativasMaximas)
      {
+
           numeroMaximo = 0;
           tentativasMaximas = 0;
 
-          switch (dificuldade)
+          while (true)
           {
-               case "1":
-                    numeroMaximo = 20;
-                    tentativasMaximas = 10;
-                    break;
-               case "2":
-                    numeroMaximo = 50;
-                    tentativasMaximas = 5;
-                    break;
-               case "3":
-                    numeroMaximo = 100;
-                    tentativasMaximas = 3;
-                    break;
-               default:
-                    System.Console.WriteLine("Opção invalida");
-                    System.Console.Write("Digite ENTER para continuar: ");
-                    Console.ReadKey();
-                    Environment.Exit(0);
-                    break;
+               switch (dificuldade)
+               {
+                    case "1":
+                         numeroMaximo = 20;
+                         tentativasMaximas = 10;
+                         return;
+                    case "2":
+                         numeroMaximo = 50;
+                         tentativasMaximas = 5;
+                         return;
+                    case "3":
+                         numeroMaximo = 100;
+                         tentativasMaximas = 3;
+                         return;
+                    default:
+                         System.Console.WriteLine("Opção invalida");
+                         System.Console.Write("Digite ENTER para continuar: ");
+                         Console.ReadKey();
+                         dificuldade = ExibirMenuEscolhaDificuldade();
+                         break;
+               }
           }
+
      }
 
      static void ExecutarPartida(int numeroMaximo, int tentativasMaximas)
