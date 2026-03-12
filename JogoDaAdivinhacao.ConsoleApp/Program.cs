@@ -213,6 +213,8 @@ class Program
                     pontuacao -= 20;
                }
 
+               int maiorPontuacao = pontuacao;
+
                if (tentativa == tentativasMaximas)
                {
                     System.Console.WriteLine("-----------------------------");
@@ -224,6 +226,18 @@ class Program
                System.Console.WriteLine("------------------------------------------");
                System.Console.WriteLine($"SUA PONTUAÇÃO FOI DE: {pontuacao} ");
                System.Console.WriteLine("------------------------------------------");
+               System.Console.WriteLine($"A MAIOR PONTUAÇÃO FOI DE: {maiorPontuacao}");
+
+               
+
+               if (pontuacao > maiorPontuacao)
+               {
+                    System.Console.WriteLine("------------------------------------------");
+                    System.Console.WriteLine("PARABÉNS,VOCE MARCOU UMA NOVA MELHOR PONTUAÇÃO!!");
+                    int novaMaiorPontuacao = pontuacao;
+                    maiorPontuacao = novaMaiorPontuacao;
+                    
+               }
 
           }
 
